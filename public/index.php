@@ -1,9 +1,4 @@
-<?php
-header("Location: pages/blocks.php"); /* Redirect browser */
-include('includes/header.php');
-
-exit();
-?>
+<?php include('includes/header.php'); ?>
 
 
 </body>

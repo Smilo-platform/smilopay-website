@@ -14,7 +14,7 @@ if(basename($_SERVER['PHP_SELF']) == 'index.php') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Smilo Explorer</title>
+    <title>SmiloPay</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="<?php echo($root.'css/main.css');?>">
