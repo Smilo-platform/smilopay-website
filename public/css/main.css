@@ -2,24 +2,6 @@ a {
     text-decoration: none !important;
 }
 
-#transactionDisplay, #blockList, #showAssets, #blockDetail, #blockDetailTx {
-    position: relative;
-    overflow: auto;
-}
-
-/* Transactions */
-th{
-    border: none !important;
-}
-
-.txInputAddress {
-    border-top: none !important;
-}
-
-.td-border {
-    border-top: none !important;
-}
-
 /* Footer */
 footer {
     text-align:center;
