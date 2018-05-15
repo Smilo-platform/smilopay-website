@@ -1,0 +1,154 @@
+a {
+    text-decoration: none !important;
+}
+
+#transactionDisplay, #blockList, #showAssets, #blockDetail, #blockDetailTx {
+    position: relative;
+    overflow: auto;
+}
+
+/* Transactions */
+th{
+    border: none !important;
+}
+
+.txInputAddress {
+    border-top: none !important;
+}
+
+.td-border {
+    border-top: none !important;
+}
+
+/* Footer */
+footer {
+    text-align:center;
+}
+
+/* Social icons */
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+#social {
+    margin: 20px 10px;
+    text-align: center;
+}
+
+.smGlobalBtn{ /* global button class */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 2px #999;
+    padding: 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 25px;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+}
+
+/* Bootstrap buttons */
+.td-border {
+    width: 250px;
+}
+.btn-primary {
+    min-width: 150px;
+}
+
+.btn-warning, .btn-success {
+    min-width: 100px;
+}
+
+/* facebook button class*/
+.telegramBtn{
+    background: #32AFED;
+}
+
+.telegramBtn:before{ /* use :before to add the relevant icons */
+    font-family: "FontAwesome";
+    content: "\f2c6"; /* add facebook icon */
+}
+
+.telegramBtn:hover{
+    color: #4060A5;
+    background: #fff;
+}
+
+/* facebook button class*/
+.facebookBtn{
+    background: #4060A5;
+}
+
+.facebookBtn:before{ /* use :before to add the relevant icons */
+    font-family: "FontAwesome";
+    content: "\f09a"; /* add facebook icon */
+}
+
+.facebookBtn:hover{
+    color: #4060A5;
+    background: #fff;
+}
+
+/* twitter button class*/
+.twitterBtn{
+    background: #00ABE3;
+}
+
+.twitterBtn:before{
+    font-family: "FontAwesome";
+    content: "\f099"; /* add twitter icon */
+}
+
+.twitterBtn:hover{
+    color: #00ABE3;
+    background: #fff;
+}
+
+/* linkedin button class*/
+.linkedinBtn{
+    background: #0094BC;
+}
+
+.linkedinBtn:before{
+    font-family: "FontAwesome";
+    content: "\f0e1"; /* add linkedin icon */
+}
+
+.linkedinBtn:hover{
+    color: #0094BC;
+    background: #fff;
+}
+
+/* medium button class*/
+.mediumBtn{
+    background: #000000;
+}
+
+.mediumBtn:before{
+    font-family: "FontAwesome";
+    content: "\f23a"; /* add medium icon */
+}
+
+.mediumBtn:hover{
+    color: #c6c6c6;
+    background: #3a3a3a;
+}
+
+/* medium button class*/
+.redditBtn{
+    background: #DD4B39;
+}
+
+.redditBtn:before{
+    font-family: "FontAwesome";
+    content: "\f1a1"; /* add medium icon */
+}
+
+.redditBtn:hover{
+    color: #DD4B39;
+    background: #ffffff;
+}
