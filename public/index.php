@@ -1,11 +1,14 @@
 <?php include('includes/header.php'); ?>
 
 <div class="container">
-    <h1>SmiloPay generation calculator</h1>
-    <div class="form-group">
-        Amount Smilo: <input type="number" class="form-control" id="amountSmilo" name="amountSmilo" oninput="updateXspCalculator()" value="1000"><br>
-    </div>
     <div class="row smilopayCalculator">
+        <div class="center">
+            <h1>SmiloPay generation calculator</h1>
+            <div class="form-group">
+                Amount Smilo: <input type="number" class="form-control smiloPayCalcInput" id="amountSmilo" name="amountSmilo" oninput="updateXspCalculator()" value="1000"><br>
+            </div>
+        </div>
+
         <table>
             <tr>
                 <th>Time</th>

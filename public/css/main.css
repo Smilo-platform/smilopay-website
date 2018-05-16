@@ -5,9 +5,21 @@ a {
 .center {
     text-align: center;
 }
-.smilopayCalculator {
-    border: solid;
-    border-width:1px;
+
+.smiloPayCalcInput {
+    display:inline-block !important;
+    margin-bottom:3%;
+}
+
+.smilopayCalculator table{
+    margin: 0% auto;
+    font-size: 130%;
+    margin-bottom: 3%;
+}
+
+.smilopayCalculator table tr td{
+    min-width: 100px;
+    padding:1%;
 }
 
 #amountSmilo {
