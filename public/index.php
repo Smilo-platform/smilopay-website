@@ -15,6 +15,10 @@
                 <th>SmiloPay</th>
             </tr>
             <tr>
+                <td>Block</td>
+                <td id="calcBlock"></td>
+            </tr>
+            <tr>
                 <td>Day</td>
                 <td id="calcDay"></td>
             </tr>
@@ -43,19 +47,36 @@
 
     function updateXspCalculator(){
         var amountSmilo = document.getElementById("amountSmilo").value;
-                
+        if(amountSmilo >= 200000000){
+            amountSmilo = 200000000;
+            document.getElementById("amountSmilo").value = amountSmilo;
+        }
         var calcDay = 0.00054;
+        var calcBlock = 0.0000001
 
-        var calcHour = calcDay/24;
-        var calcMin = calcHour/60;
-        var calcSec = calcMin/60;
+        document.getElementById("calcBlock").innerHTML = toFixed(amountSmilo*calcBlock);
+        document.getElementById("calcDay").innerHTML = toFixed((amountSmilo*calcDay));
+        document.getElementById("calcWeek").innerHTML = toFixed((amountSmilo*calcDay*7));
+        document.getElementById("calcMonth").innerHTML = toFixed((amountSmilo*calcDay*365/12));
+        document.getElementById("calcYear").innerHTML = toFixed((amountSmilo*calcDay*365));
+    }
 
-        var calcWeek = calcDay*7;
-        var calcMonth = calcWeek*4.3;
-        var calcYear = calcMonth*12;
-        document.getElementById("calcDay").innerHTML = (amountSmilo*calcDay).toFixed(4);
-        document.getElementById("calcWeek").innerHTML = (amountSmilo*calcWeek).toFixed(4);
-        document.getElementById("calcMonth").innerHTML = (amountSmilo*calcDay*365/12).toFixed(4);
-        document.getElementById("calcYear").innerHTML = (amountSmilo*calcDay*365).toFixed(4);
+    function toFixed(x) {
+        if (Math.abs(x) < 1.0) {
+            var e = parseInt(x.toString().split('e-')[1]);
+            if (e) {
+                x *= Math.pow(10,e-1);
+                x = '0.' + (new Array(e)).join('0') + x.toString().substring(2);
+            }
+        } else {
+            var e = parseInt(x.toString().split('+')[1]);
+            if (e > 20) {
+                e -= 20;
+                x /= Math.pow(10,e);
+                x += (new Array(e+1)).join('0');
+            }
+        }
+        x = Number.parseFloat(x).toFixed(8);
+        return x;
     }
 </script>
