@@ -2,6 +2,18 @@ a {
     text-decoration: none !important;
 }
 
+.center {
+    text-align: center;
+}
+.smilopayCalculator {
+    border: solid;
+    border-width:1px;
+}
+
+#amountSmilo {
+    width: 10%;
+}
+
 /* Footer */
 footer {
     text-align:center;
