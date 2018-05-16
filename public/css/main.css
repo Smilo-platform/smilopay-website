@@ -15,11 +15,16 @@ a {
     margin: 0% auto;
     font-size: 130%;
     margin-bottom: 3%;
+    width:40%;
 }
 
 .smilopayCalculator table tr td{
-    min-width: 100px;
     padding:1%;
+}
+
+.smilopayCalculator table tbody tr th, .smilopayCalculator table tbody tr td {
+    text-align: center;
+    width:50%;
 }
 
 #amountSmilo {

@@ -14,6 +14,4 @@
         <a class="mediumBtn smGlobalBtn" href="https://medium.com/smilo-platform" target="_blank" ></a>
     </div>
 </footer>
-<script src="/javascript/frontend.js"></script>
-<script src="/javascript/helpers.js"></script>
 </html>

@@ -9,28 +9,28 @@
             </div>
         </div>
 
-        <table>
+        <table class="table table-striped">
             <tr>
                 <th>Time</th>
                 <th>SmiloPay</th>
             </tr>
-            <tr>
+            <tr class="tableRowInfo">
                 <td>Block</td>
                 <td id="calcBlock"></td>
             </tr>
-            <tr>
+            <tr class="tableRowInfo">
                 <td>Day</td>
                 <td id="calcDay"></td>
             </tr>
-            <tr>
+            <tr class="tableRowInfo">
                 <td>Week</td>
                 <td id="calcWeek"></td>
             </tr>
-            <tr>
+            <tr class="tableRowInfo">
                 <td>Month</td>
                 <td id="calcMonth"></td>
             </tr>
-            <tr>
+            <tr class="tableRowInfo">
                 <td>Year</td>
                 <td id="calcYear"></td>
             </tr>
@@ -51,6 +51,7 @@
             amountSmilo = 200000000;
             document.getElementById("amountSmilo").value = amountSmilo;
         }
+
         var calcDay = 0.00054;
         var calcBlock = 0.0000001
 
