@@ -3,7 +3,9 @@
 <div class="container">
     <div class="row smilopayCalculator">
         <div class="center">
-            <h1>SmiloPay generation calculator</h1>
+            <h1>SmiloPay calculator</h1>
+            <p>Enter the amount of Smilo's you hold <br/>
+                to see how much SmiloPay it will generate</p>
             <div class="form-group">
                 Amount Smilo: <input type="number" class="form-control smiloPayCalcInput" id="amountSmilo" name="amountSmilo" oninput="updateXspCalculator()" value="1000"><br>
             </div>
