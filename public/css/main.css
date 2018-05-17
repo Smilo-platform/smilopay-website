@@ -1,9 +1,39 @@
 a {
     text-decoration: none !important;
 }
+.navbar-default {
+    margin: 0% !important;
 
 .center {
     text-align: center;
+}
+
+.blockBanner {
+    background-color: #eff1f7;
+    width: 100%;
+    text-align: center;
+}
+
+.blockBanner ul li {
+    display: inline-block;
+    margin: 0% 3%;
+}
+
+.networkInfo {
+    border-width:1px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1% 3%;
+}
+
+.networkInfo table {
+    width: 100%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .smiloPayCalcInput {

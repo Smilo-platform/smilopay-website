@@ -1,42 +1,62 @@
 <?php include('includes/header.php'); ?>
-
+<div class="blockBanner">
+    <ul>
+        <li>Smilo Price: 0.25$</li>
+        <li>SmiloPay Price: ...</li>
+        <li>Block time: 16 Sec</li>
+    </ul>
+</div>
 <div class="container">
-    <div class="row smilopayCalculator">
-        <div class="center">
-            <h1>SmiloPay calculator</h1>
-            <p>Enter the amount of Smilo's you hold <br/>
-                to see how much SmiloPay it will generate</p>
-            <div class="form-group">
-                Amount Smilo: <input type="number" class="form-control smiloPayCalcInput" id="amountSmilo" name="amountSmilo" oninput="updateXspCalculator()" value="1000"><br>
+    <div class="row">
+        <div class="col-md-12 smilopayCalculator">
+            <div class="center">
+                <h1>SmiloPay reward</h1>
+                <div class="form-group">
+                    <p>How many Smilo tokens do you own?</p>
+                    <input type="number" class="form-control smiloPayCalcInput" id="amountSmilo" name="amountSmilo" oninput="updateXspCalculator()" value="1000"><br>
+                    <p>Calculate your SmiloPay reward.</p>
+                </div>
             </div>
-        </div>
 
-        <table class="table table-striped">
-            <tr>
-                <th>Time</th>
-                <th>SmiloPay</th>
-            </tr>
-            <tr class="tableRowInfo">
-                <td>Block</td>
-                <td id="calcBlock"></td>
-            </tr>
-            <tr class="tableRowInfo">
-                <td>Day</td>
-                <td id="calcDay"></td>
-            </tr>
-            <tr class="tableRowInfo">
-                <td>Week</td>
-                <td id="calcWeek"></td>
-            </tr>
-            <tr class="tableRowInfo">
-                <td>Month</td>
-                <td id="calcMonth"></td>
-            </tr>
-            <tr class="tableRowInfo">
-                <td>Year</td>
-                <td id="calcYear"></td>
-            </tr>
-        </table>
+            <table class="table table-striped">
+                <tr>
+                    <th>Time</th>
+                    <th>SmiloPay</th>
+                    <th>USD value</th>
+                    <th>EUR value</th>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>Block</td>
+                    <td id="calcBlock"></td>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>Day</td>
+                    <td id="calcDay"></td>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>Week</td>
+                    <td id="calcWeek">
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>Month</td>
+                    <td id="calcMonth"></td>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>Year</td>
+                    <td id="calcYear"></td>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 
