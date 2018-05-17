@@ -17,9 +17,7 @@
             <ul class="nav navbar-nav">
                 <?php $pageName = basename($_SERVER['PHP_SELF']); ?>
                 <li <?php echo ($pageName == 'index.php') ? "class='active'" : ""; ?>><a href="/">Home<span class="sr-only">(current)</span></a></li>
-                <li <?php echo ($pageName == 'page.php') ? "class='active'" : ""; ?>><a href="#">item</a></li>
-                <li <?php echo ($pageName == 'page.php') ? "class='active'" : ""; ?>><a href="#">item</a></li>
-                <li <?php echo ($pageName == 'page.php') ? "class='active'" : ""; ?>><a href="#">item</a></li>
+                <li <?php echo ($pageName == 'information.php') ? "class='active'" : ""; ?>><a href="/pages/information.php">Information</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="https://smilo.io" target="_blank">Smilo.io</a></li>
