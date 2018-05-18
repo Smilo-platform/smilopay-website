@@ -42,6 +42,11 @@ a {
     margin-bottom:3%;
 }
 
+.smilopayCalculator {
+    position: relative;
+    overflow: auto;
+}
+
 .smilopayCalculator table{
     margin: 0% auto;
     font-size: 130%;
