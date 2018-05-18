@@ -22,8 +22,8 @@
                 <tr>
                     <th>Time</th>
                     <th>SmiloPay</th>
-                    <th>USD value</th>
-                    <th>EUR value</th>
+                    <th>USD</th>
+                    <th>EUR</th>
                 </tr>
                 <tr class="tableRowInfo">
                     <td>Block</td>
