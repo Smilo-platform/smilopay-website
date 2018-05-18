@@ -1,6 +1,5 @@
 </body>
 <footer>
-    <!-- Content here -->
     <h3>Smilo Platform</h3>
     <h5>The latest generation hybrid blockchain platform</h5>
     <p>

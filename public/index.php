@@ -62,11 +62,9 @@
 
 </body>
 <?php include('includes/footer.php'); ?>
-
 <script>
     // Load first time
     updateXspCalculator()
-
     function updateXspCalculator(){
         var amountSmilo = document.getElementById("amountSmilo").value;
         if(amountSmilo >= 200000000){
