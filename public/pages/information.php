@@ -14,8 +14,11 @@
                 <h1>Token management</h1>
                 <p>
                     For this new hybrid Smilo platform, two types of tokens will drive the network.
-                    Smilo tokens
-                    SmiloPay tokens
+                    <ul>
+                        <li>Smilo tokens</li>
+                        <li>SmiloPay tokens</li>
+                    </ul>
+
                     Smilo tokens are a part of the Smilo network itself, as they represent a user’s own personal shares and thus are emblematic of each user’s power to influence the network itself. SmiloPay tokens are the medium with which to pay for all service fees and upkeep of the Smilo network.
                     In total, 200 million Smilo tokens will be created, and these will generate 200 million SmiloPay tokens.
 
