@@ -1,2 +1,2 @@
 FROM php:7.0-apache
-#COPY public/ /var/www/html
+COPY public/ /var/www/html
