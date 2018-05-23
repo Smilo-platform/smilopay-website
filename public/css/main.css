@@ -1,23 +1,65 @@
 a {
     text-decoration: none !important;
 }
+.navbar-default {
+    margin: 0% !important;
+}
 
-#transactionDisplay, #blockList, #showAssets, #blockDetail, #blockDetailTx {
+.center {
+    text-align: center;
+}
+
+.blockBanner {
+    background-color: #eff1f7;
+    width: 100%;
+    text-align: center;
+    font-size: 130%;
+    padding: 0.3%;
+    margin: 0%;
+}
+
+.blockBanner ul {
+    margin: 0%;
+}
+
+.blockBanner ul li {
+    display: inline-block;
+    margin: 0% 3%;
+}
+
+.smiloPayCalcInput {
+    display:inline-block !important;
+    margin-bottom:3%;
+}
+
+.smilopayCalculator {
     position: relative;
     overflow: auto;
 }
 
-/* Transactions */
-th{
-    border: none !important;
+.smilopayCalculator table{
+    margin: 0% auto;
+    font-size: 130%;
+    margin-bottom: 3%;
+    width:40%;
 }
 
-.txInputAddress {
-    border-top: none !important;
+.smilopayCalculator table tr td{
+    padding:1%;
 }
 
-.td-border {
-    border-top: none !important;
+.smilopayCalculator table tbody tr th, .smilopayCalculator table tbody tr td {
+    text-align: center;
+    width:50%;
+}
+
+#amountSmilo {
+    width: 15%;
+}
+
+.informationContent article{
+    width: 50%;
+    margin: 3% auto;
 }
 
 /* Footer */
@@ -138,7 +180,7 @@ footer {
     background: #3a3a3a;
 }
 
-/* medium button class*/
+/* Reddit button class*/
 .redditBtn{
     background: #DD4B39;
 }
