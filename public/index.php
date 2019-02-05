@@ -2,8 +2,8 @@
 <div class="blockBanner">
     <ul>
         <li>Smilo Price: 0.25$</li>
-        <li>SmiloPay Price: ...</li>
-        <li>Block time: 16 Sec</li>
+        <li>Average TX Price: ..... XSP</li>
+        <li>Block time: 1 Sec</li>
     </ul>
 </div>
 <div class="container">
@@ -14,46 +14,25 @@
                 <div class="form-group">
                     <p>How many Smilo tokens do you own?</p>
                     <input type="number" class="form-control smiloPayCalcInput" id="amountSmilo" name="amountSmilo" oninput="updateXspCalculator()" value="1000"><br>
-                    <p>Calculate your SmiloPay reward.</p>
+                    <p>Calculate your SmiloPay.</p>
                 </div>
             </div>
 
             <table class="table table-striped">
-                <tr>
-                    <th>Time</th>
-                    <th>SmiloPay</th>
-                    <th>USD</th>
-                    <th>EUR</th>
+                <tr class="tableRowInfo">
+                    <td>MaxSmiloPay</td>
+                    <td id="calcMaxSmiloPay"></td>
+                    <td>XSP</td>
                 </tr>
                 <tr class="tableRowInfo">
-                    <td>Block</td>
-                    <td id="calcBlock"></td>
-                    <td>...</td>
-                    <td>...</td>
+                    <td>Recovery Speed</td>
+                    <td id="calcSpeed"></td>
+                    <td>XSP/Block</td>
                 </tr>
                 <tr class="tableRowInfo">
-                    <td>Day</td>
-                    <td id="calcDay"></td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr class="tableRowInfo">
-                    <td>Week</td>
-                    <td id="calcWeek">
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr class="tableRowInfo">
-                    <td>Month</td>
-                    <td id="calcMonth"></td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr class="tableRowInfo">
-                    <td>Year</td>
-                    <td id="calcYear"></td>
-                    <td>...</td>
-                    <td>...</td>
+                    <td>Blocks till full</td>
+                    <td id="calcBlocks">
+                    <td>Blocks</td>
                 </tr>
             </table>
         </div>
@@ -67,19 +46,28 @@
     updateXspCalculator()
     function updateXspCalculator(){
         var amountSmilo = document.getElementById("amountSmilo").value;
-        if(amountSmilo >= 200000000){
-            amountSmilo = 200000000;
+        if(amountSmilo >= 350000000){
+            amountSmilo = 350000000;
             document.getElementById("amountSmilo").value = amountSmilo;
         }
 
-        var calcDay = 0.00054;
-        var calcBlock = 0.0000001
+        var maxSmiloPay;
+        var RecoverySpeed;
+        var recoveryBlocks;
 
-        document.getElementById("calcBlock").innerHTML = toFixed(amountSmilo*calcBlock);
-        document.getElementById("calcDay").innerHTML = toFixed((amountSmilo*calcDay));
-        document.getElementById("calcWeek").innerHTML = toFixed((amountSmilo*calcDay*7));
-        document.getElementById("calcMonth").innerHTML = toFixed((amountSmilo*calcDay*365/12));
-        document.getElementById("calcYear").innerHTML = toFixed((amountSmilo*calcDay*365));
+        if(amountSmilo == 0){
+            maxSmiloPay = 0;
+            RecoverySpeed = 0;
+            recoveryBlocks = '\u221e';
+        } else {
+            maxSmiloPay = (0.001 + (Math.sqrt(amountSmilo)/50000)) * 5000;
+            recoverySpeed =  (0.000001 + (Math.sqrt(amountSmilo) / 750000)) * 5000;
+            recoveryBlocks = toFixed((maxSmiloPay/recoverySpeed));
+        }
+
+        document.getElementById("calcMaxSmiloPay").innerHTML = toFixed(maxSmiloPay);
+        document.getElementById("calcSpeed").innerHTML = toFixed(recoverySpeed);
+        document.getElementById("calcBlocks").innerHTML = recoveryBlocks;
     }
 
     function toFixed(x) {

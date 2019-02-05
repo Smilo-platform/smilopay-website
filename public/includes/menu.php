@@ -24,8 +24,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="https://smilo.io" target="_blank">Website</a></li>
-                        <li><a href="#">Wallet</a></li>
-                        <li><a href="http://prototype.smilo.network" target="_blank">Block Explorer</a></li>
+                        <li><a href="https://smilowallet.io">Wallet</a></li>
+                        <li><a href="http://testnet-explorer.smilo.network" target="_blank">Block Explorer</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="https://medium.com/smilo-platform" target="_blank">Medium</a></li>
                         <li><a href="https://twitter.com/SmiloPlatform" target="_blank">Twitter</a></li>
