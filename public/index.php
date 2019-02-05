@@ -10,11 +10,10 @@
     <div class="row">
         <div class="col-md-12 smilopayCalculator">
             <div class="center">
-                <h1>SmiloPay reward</h1>
+                <h1>SmiloPay Calculator</h1>
                 <div class="form-group">
-                    <p>How many Smilo tokens do you own?</p>
+                    <p>How many Smilo do you have?</p>
                     <input type="number" class="form-control smiloPayCalcInput" id="amountSmilo" name="amountSmilo" oninput="updateXspCalculator()" value="1000"><br>
-                    <p>Calculate your SmiloPay.</p>
                 </div>
             </div>
 
