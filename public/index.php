@@ -13,7 +13,7 @@
                 <h1>SmiloPay Calculator</h1>
                 <div class="form-group">
                     <p>How many Smilo do you have?</p>
-                    <input type="number" class="form-control smiloPayCalcInput" id="amountSmilo" name="amountSmilo" oninput="updateXspCalculator()" value="1000"><br>
+                    <input type="number" class="form-control smiloPayCalcInput" id="amountSmilo" name="amountSmilo" oninput="updateXspCalculator()" value="1000"> <SPAN STYLE="font-weight: Bold; font-size: 18px;"> Smilo </SPAN><br>
                 </div>
             </div>
 
@@ -42,10 +42,10 @@
                 <h1>Transaction Calculator</h1>
                 <div class="form-group">
                     <p>How many Smilo do you have?</p>
-                    <input type="number" class="form-control smiloCalcInput" id="amountTx" name="amountTx" oninput="updateTxCalculator()" value="1000">
+                    <input type="number" class="form-control smiloCalcInput" id="amountTx" name="amountTx" oninput="updateTxCalculator()" value="1000"> <SPAN STYLE="font-weight: Bold; font-size: 18px;"> Smilo </SPAN>
                     <br>
-                    <p>How many Gas (Calculations) does a transaction cost? (default: 21000)</p>
-                    <input type="number" class="form-control smiloCalcInput" id="amountGas" name="amountGas" oninput="updateGasUsedCalculator()" value="21000">
+                    <p>How many Gas (Calculations) does your transaction cost? (default: 21000)</p>
+                    <input type="number" class="form-control smiloCalcInput" id="amountGas" name="amountGas" oninput="updateGasUsedCalculator()" value="21000"> <SPAN STYLE="font-weight: Bold; font-size: 18px;"> Gas </SPAN>
                     <br>
                 </div>
             </div>
