@@ -9,6 +9,14 @@ a {
     text-align: center;
 }
 
+.containerSmiloCalculator {
+    background-color: #eff1f7;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .blockBanner {
     background-color: #eff1f7;
     width: 100%;
@@ -41,7 +49,7 @@ a {
     margin: 0% auto;
     font-size: 130%;
     margin-bottom: 3%;
-    width:40%;
+    width:60%;
 }
 
 .smilopayCalculator table tr td{
@@ -50,7 +58,7 @@ a {
 
 .smilopayCalculator table tbody tr th, .smilopayCalculator table tbody tr td {
     text-align: center;
-    width:50%;
+    width:25%;
 }
 
 #amountSmilo {
@@ -61,6 +69,47 @@ a {
     width: 50%;
     margin: 3% auto;
 }
+
+
+/* Transaction calculator */
+.smiloCalcInput {
+    display:inline-block !important;
+    margin-bottom:3%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+.smiloCalculator {
+    position: relative;
+    overflow: auto;
+}
+
+.smiloCalculator table{
+    margin: 0% auto;
+    font-size: 130%;
+    margin-bottom: 3%;
+    width:60%;
+}
+
+.smiloCalculator table tr td{
+    padding:1%;
+}
+
+.smiloCalculator table tbody tr th, .smiloCalculator table tbody tr td {
+    text-align: center;
+    width:25%;
+}
+
+#amountTx {
+    width: 15%;
+}
+
+#amountGas {
+    width: 15%;
+}
+
 
 /* Footer */
 footer {
