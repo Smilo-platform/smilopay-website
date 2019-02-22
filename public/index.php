@@ -1,9 +1,9 @@
 <?php include('includes/header.php'); ?>
 <div class="blockBanner">
     <ul>
-        <li>Smilo Price: 0.25$</li>
+        <li>Smilo Price: 1 Euro</li>
         <li>Average TX Price: 0.115 XSP</li>
-        <li>Block time: 1 Sec</li>git branch
+        <li>Block time: ~ 1 Sec</li>
     </ul>
 </div>
 <div class="container">
