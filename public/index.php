@@ -120,9 +120,9 @@
             recoveryBlocks = '\u221e';
             maxGas = 0;
         } else {
-            amountSmilo = amountSmilo * 1000;
+            amountSmilo = amountSmilo * 1;
             // maxSmiloPay := (0.001 + (f / 50000)) * 5000 * 1000000000000000
-            console.log("===== MaxSmiloPay " + amountSmilo / 1000 + " =======");
+            console.log("===== MaxSmiloPay " + amountSmilo + " =======");
             console.log("Sqrt: " + Math.sqrt(amountSmilo));
             console.log("fDiv: " + Math.sqrt(amountSmilo) / 50000 );
             console.log("fAdd: " + ((Math.sqrt(amountSmilo) / 50000 ) + 0.001));
@@ -131,12 +131,12 @@
 
             // smiloSpeed := (0.000001 + (sqrt / 750000)) * 8000 * 100000000000000
 
-            console.log("===== recoverySpeed " + amountSmilo / 1000 + "=======");
+            console.log("===== recoverySpeed " + amountSmilo + "=======");
             console.log("Sqrt: " + Math.sqrt(amountSmilo));
             console.log("fDiv: " + Math.sqrt(amountSmilo) / 750000 );
             console.log("fAdd: " + ((Math.sqrt(amountSmilo) / 750000 ) + 0.000001));
-            console.log("recoverySpeed: " + ((Math.sqrt(amountSmilo) / 750000 ) + 0.001) * 8);
-            recoverySpeed =  ((0.000001 + (Math.sqrt(amountSmilo) / 750000)) * 8);
+            console.log("recoverySpeed: " + ((Math.sqrt(amountSmilo) / 750000 ) + 0.000001) * 0.5);
+            recoverySpeed =  ((0.000001 + (Math.sqrt(amountSmilo) / 750000)) * 0.5);
             recoveryBlocks = toFixed((maxSmiloPay/recoverySpeed));
             maxGas = (maxSmiloPay/Gwei1);
         }
@@ -153,11 +153,11 @@
         document.getElementById("calcTxPrice15").innerHTML = toFixed(txPrice*15);
         document.getElementById("calcTxPrice20").innerHTML = toFixed(txPrice*20);
 
-        document.getElementById("calcMaxTx1").innerHTML = toFixed(maxGas/gasUsed);
-        document.getElementById("calcMaxTx5").innerHTML = toFixed(maxGas/gasUsed/5);
-        document.getElementById("calcMaxTx10").innerHTML = toFixed(maxGas/gasUsed/10);
-        document.getElementById("calcMaxTx15").innerHTML = toFixed(maxGas/gasUsed/15);
-        document.getElementById("calcMaxTx20").innerHTML = toFixed(maxGas/gasUsed/20);
+        document.getElementById("calcMaxTx1").innerHTML = toFixed(maxSmiloPay/txPrice);
+        document.getElementById("calcMaxTx5").innerHTML = toFixed(maxSmiloPay/txPrice/5);
+        document.getElementById("calcMaxTx10").innerHTML = toFixed(maxSmiloPay/txPrice/10);
+        document.getElementById("calcMaxTx15").innerHTML = toFixed(maxSmiloPay/txPrice/15);
+        document.getElementById("calcMaxTx20").innerHTML = toFixed(maxSmiloPay/txPrice/20);
 
         document.getElementById("calcTx1Block").innerHTML = toFixed(recoverySpeed / (txPrice));
         document.getElementById("calcTx5Block").innerHTML = toFixed(recoverySpeed / (txPrice*5));
