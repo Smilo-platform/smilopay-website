@@ -120,25 +120,24 @@
             recoveryBlocks = '\u221e';
             maxGas = 0;
         } else {
-            amountSmilo = amountSmilo * 1;
             // maxSmiloPay := (0.001 + (f / 50000)) * 5000 * 1000000000000000
-            console.log("===== MaxSmiloPay " + amountSmilo + " =======");
-            console.log("Sqrt: " + Math.sqrt(amountSmilo));
-            console.log("fDiv: " + Math.sqrt(amountSmilo) / 50000 );
-            console.log("fAdd: " + ((Math.sqrt(amountSmilo) / 50000 ) + 0.001));
-            console.log("maxSmiloPay: " + ((Math.sqrt(amountSmilo) / 50000 ) + 0.001) * 5);
+            // console.log("===== MaxSmiloPay " + amountSmilo + " =======");
+            // console.log("Sqrt: " + Math.sqrt(amountSmilo));
+            // console.log("fDiv: " + Math.sqrt(amountSmilo) / 50000 );
+            // console.log("fAdd: " + ((Math.sqrt(amountSmilo) / 50000 ) + 0.001));
+            // console.log("maxSmiloPay: " + ((Math.sqrt(amountSmilo) / 50000 ) + 0.001) * 5);
             maxSmiloPay = ((0.001 + (Math.sqrt(amountSmilo) / 50000)) * 5);
 
             // smiloSpeed := (0.000001 + (sqrt / 750000)) * 8000 * 100000000000000
 
-            console.log("===== recoverySpeed " + amountSmilo + "=======");
-            console.log("Sqrt: " + Math.sqrt(amountSmilo));
-            console.log("fDiv: " + Math.sqrt(amountSmilo) / 750000 );
-            console.log("fAdd: " + ((Math.sqrt(amountSmilo) / 750000 ) + 0.000001));
-            console.log("recoverySpeed: " + ((Math.sqrt(amountSmilo) / 750000 ) + 0.000001) * 0.5);
+            // console.log("===== recoverySpeed " + amountSmilo + "=======");
+            // console.log("Sqrt: " + Math.sqrt(amountSmilo));
+            // console.log("fDiv: " + Math.sqrt(amountSmilo) / 750000 );
+            // console.log("fAdd: " + ((Math.sqrt(amountSmilo) / 750000 ) + 0.000001));
+            // console.log("recoverySpeed: " + ((Math.sqrt(amountSmilo) / 750000 ) + 0.000001) * 0.5);
             recoverySpeed =  ((0.000001 + (Math.sqrt(amountSmilo) / 750000)) * 0.5);
             recoveryBlocks = toFixed((maxSmiloPay/recoverySpeed));
-            maxGas = (maxSmiloPay/Gwei1);
+            // maxGas = (maxSmiloPay/Gwei1);
         }
 
         /* XSP Calc */
