@@ -112,7 +112,7 @@
         var gasUsed = amountGas;
         var maxGas;
         var Gwei1=0.000000001;
-        var txPrice = gasUsed * Gwei1 * 5000;
+        var txPrice = gasUsed * Gwei1;
 
         if(amountSmilo === 0){
             maxSmiloPay = 0;
@@ -120,11 +120,25 @@
             recoveryBlocks = '\u221e';
             maxGas = 0;
         } else {
-            maxSmiloPay = (0.001 + (Math.sqrt(amountSmilo)/50000)) * 5000;
-            recoverySpeed =  (0.000001 + (Math.sqrt(amountSmilo) / 750000)) * 5000;
-            recoveryBlocks = toFixed((maxSmiloPay/recoverySpeed));
-            maxGas = (maxSmiloPay/Gwei1)/5000;
+            amountSmilo = amountSmilo * 1000;
+            // maxSmiloPay := (0.001 + (f / 50000)) * 5000 * 1000000000000000
+            console.log("===== MaxSmiloPay " + amountSmilo / 1000 + " =======");
+            console.log("Sqrt: " + Math.sqrt(amountSmilo));
+            console.log("fDiv: " + Math.sqrt(amountSmilo) / 50000 );
+            console.log("fAdd: " + ((Math.sqrt(amountSmilo) / 50000 ) + 0.001));
+            console.log("maxSmiloPay: " + ((Math.sqrt(amountSmilo) / 50000 ) + 0.001) * 5);
+            maxSmiloPay = ((0.001 + (Math.sqrt(amountSmilo) / 50000)) * 5);
 
+            // smiloSpeed := (0.000001 + (sqrt / 750000)) * 8000 * 100000000000000
+
+            console.log("===== recoverySpeed " + amountSmilo / 1000 + "=======");
+            console.log("Sqrt: " + Math.sqrt(amountSmilo));
+            console.log("fDiv: " + Math.sqrt(amountSmilo) / 750000 );
+            console.log("fAdd: " + ((Math.sqrt(amountSmilo) / 750000 ) + 0.000001));
+            console.log("recoverySpeed: " + ((Math.sqrt(amountSmilo) / 750000 ) + 0.001) * 8);
+            recoverySpeed =  ((0.000001 + (Math.sqrt(amountSmilo) / 750000)) * 8);
+            recoveryBlocks = toFixed((maxSmiloPay/recoverySpeed));
+            maxGas = (maxSmiloPay/Gwei1);
         }
 
         /* XSP Calc */
