@@ -92,7 +92,84 @@
     </div>
     </div>
 </div>
-
+<div class="containerSmiloCalculator">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 smiloCalculator">
+            <div class="center">
+                <h1>Peak Number of Transactions Calculator</h1>
+                <div class="form-group">
+                    <p>How many transactions per second between peaks of transactions? (default: 0)</p>
+                    <input type="number" class="form-control smiloCalcInput" id="amountTxCoolDown" name="amountTxCoolDown" oninput="updateTxPeakCalculator()" value="0"> <SPAN STYLE="font-weight: Bold; font-size: 18px;"> transactions/second </SPAN>
+                    <br>
+                    <p>What is the average price of gas in GWEI? (default: 5)</p>
+                    <input type="number" class="form-control smiloCalcInput" id="averageGasPrice" name="averageGasPrice" oninput="updatePeakGasPriceCalculator()" value="5"> <SPAN STYLE="font-weight: Bold; font-size: 18px;"> GWEI/gas unit </SPAN>
+                    <br>
+                </div>
+            </div>
+			<table class="table table-striped">
+				<tr class="tableRowInfo">
+					<td>Cool Down Number of Blocks</td>
+					<td id="calcCoolDownPeriod"></td>
+				</tr>
+			</table>
+            <table class="table table-striped">
+                <tr class="tableRowInfo">
+                    <th>Peak Duration</th>
+                    <th>Total Peak Transactions</th>
+                    <th>Average Tx/Block</th>
+                    <th onclick="showSinusoidal()">Sinusoidal Max Tx/Block</th>
+                    <th onclick="showTriangular()">Triangular Max Tx/Block</th>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>10s</td>
+                    <td id="calcTotalMaxTx10"></td>
+                    <td id="calcPeakTxBlock10"></td>
+                    <td id="calcPeakMaxSin10"></td>
+                    <td id="calcPeakMaxTri10"></td>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>30s</td>
+                    <td id="calcTotalMaxTx30"></td>
+                    <td id="calcPeakTxBlock30"></td>
+                    <td id="calcPeakMaxSin30"></td>
+                    <td id="calcPeakMaxTri30"></td>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>60s</td>
+                    <td id="calcTotalMaxTx60"></td>
+                    <td id="calcPeakTxBlock60"></td>
+                    <td id="calcPeakMaxSin60"></td>
+                    <td id="calcPeakMaxTri60"></td>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>5min</td>
+                    <td id="calcTotalMaxTx5min"></td>
+                    <td id="calcPeakTxBlock5min"></td>
+                    <td id="calcPeakMaxSin5min"></td>
+                    <td id="calcPeakMaxTri5min"></td>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>15min</td>
+                    <td id="calcTotalMaxTx15min"></td>
+                    <td id="calcPeakTxBlock15min"></td>
+                    <td id="calcPeakMaxSin15min"></td>
+                    <td id="calcPeakMaxTri15min"></td>
+                </tr>
+                <tr class="tableRowInfo">
+                    <td>1h</td>
+                    <td id="calcTotalMaxTx1h"></td>
+                    <td id="calcPeakTxBlock1h"></td>
+                    <td id="calcPeakMaxSin1h"></td>
+                    <td id="calcPeakMaxTri1h"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="sinusoidal" class="modal" onclick="hideAll();"><img src="images/Sinusoidal.png"></div>
+<div id="triangular" class="modal" onclick="hideAll();"><img src="images/Triangular.png"></div>
 </body>
 <?php include('includes/footer.php'); ?>
 <script>
@@ -163,6 +240,8 @@
         document.getElementById("calcTx10Block").innerHTML = toFixed(recoverySpeed / (txPrice*10));
         document.getElementById("calcTx15Block").innerHTML = toFixed(recoverySpeed / (txPrice*15));
         document.getElementById("calcTx20Block").innerHTML = toFixed(recoverySpeed / (txPrice*20));
+        
+        updatePeakGasPriceCalculator()
     }
 
     function updateXspCalculator(){
@@ -193,6 +272,86 @@
         updateResults();
     }
 
+    function showSinusoidal() {
+    	document.getElementById('sinusoidal').style.display = "block";
+    }
+    function showTriangular() {
+    	document.getElementById('triangular').style.display = "block";
+    }
+    function hideAll() {
+    	document.getElementById('sinusoidal').style.display = "none";
+    	document.getElementById('triangular').style.display = "none";
+    }
+
+    function updatePeakGasPriceCalculator(){
+		var gasPrice = document.getElementById("averageGasPrice").value;
+
+        if (gasPrice < 1) {
+			gasPrice = 1;
+			document.getElementById("averageGasPrice").value = gasPrice;			
+        }		
+        updateTxPeakCalculator();
+    }
+    
+    function updateTxPeakCalculator() {
+		var gasPrice = document.getElementById("averageGasPrice").value;
+		var coolDownTx = document.getElementById("amountTxCoolDown").value;
+        var amountSmilo = document.getElementById("amountSmilo").value;
+        var amountGas = document.getElementById("amountGas").value;
+		
+        var maxSmiloPay = ((0.001 + (Math.sqrt(amountSmilo) / 50000)) * 5);
+        var recoverySpeed =  ((0.000001 + (Math.sqrt(amountSmilo) / 750000)) * 0.5);
+        
+        var maxTXRecovery = recoverySpeed / (gasPrice * 0.000000001 * amountGas);
+        var maxTXTotal = maxSmiloPay / (gasPrice * 0.000000001 * amountGas);
+
+        if (coolDownTx < 0) {
+			coolDownTx = 0;
+			document.getElementById("amountTxCoolDown").value = coolDownTx;			
+        }		
+
+        if (coolDownTx > maxTXRecovery) {
+			coolDownTx = Math.floor(maxTXRecovery);
+			document.getElementById("amountTxCoolDown").value = coolDownTx;			
+        }		
+    	
+        document.getElementById("calcCoolDownPeriod").innerHTML	= Math.ceil(maxTXTotal/(maxTXRecovery-coolDownTx));
+            	
+        document.getElementById("calcTotalMaxTx10").innerHTML = Math.floor(maxTXTotal + (maxTXRecovery * 10));
+        document.getElementById("calcTotalMaxTx30").innerHTML = Math.floor(maxTXTotal + (maxTXRecovery * 30));
+        document.getElementById("calcTotalMaxTx60").innerHTML = Math.floor(maxTXTotal + (maxTXRecovery * 60));
+        document.getElementById("calcTotalMaxTx5min").innerHTML = Math.floor(maxTXTotal + (maxTXRecovery * 300));
+        document.getElementById("calcTotalMaxTx15min").innerHTML = Math.floor(maxTXTotal + (maxTXRecovery * 900));
+        document.getElementById("calcTotalMaxTx1h").innerHTML = Math.floor(maxTXTotal + (maxTXRecovery * 3600));
+
+        document.getElementById("calcPeakTxBlock10").innerHTML = toFixed(Math.floor(maxTXTotal + (maxTXRecovery * 10))/10.0);
+        document.getElementById("calcPeakTxBlock30").innerHTML = toFixed(Math.floor(maxTXTotal + (maxTXRecovery * 30))/30.0);
+        document.getElementById("calcPeakTxBlock60").innerHTML = toFixed(Math.floor(maxTXTotal + (maxTXRecovery * 60))/60.0);
+        document.getElementById("calcPeakTxBlock5min").innerHTML = toFixed(Math.floor(maxTXTotal + (maxTXRecovery * 300))/300.0);
+        document.getElementById("calcPeakTxBlock15min").innerHTML = toFixed(Math.floor(maxTXTotal + (maxTXRecovery * 900))/900.0);
+        document.getElementById("calcPeakTxBlock1h").innerHTML = toFixed(Math.floor(maxTXTotal + (maxTXRecovery * 3600))/3600.0);
+        
+        document.getElementById("calcPeakMaxSin10").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 10))*Math.PI/(2 * 10.0)));
+        document.getElementById("calcPeakMaxSin30").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 30))*Math.PI/(2 * 30.0)));
+        document.getElementById("calcPeakMaxSin60").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 60))*Math.PI/(2 * 60.0)));
+        document.getElementById("calcPeakMaxSin5min").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 300))*Math.PI/(2 * 300.0)));
+        document.getElementById("calcPeakMaxSin15min").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 900))*Math.PI/(2 * 900.0)));
+        document.getElementById("calcPeakMaxSin1h").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 3600))*Math.PI/(2 * 3600.0)));
+
+        document.getElementById("calcPeakMaxTri10").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 10)) * 2 / 10.0));
+        document.getElementById("calcPeakMaxTri30").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 30)) * 2 / 30.0));
+        document.getElementById("calcPeakMaxTri60").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 60)) * 2 / 60.0));
+        document.getElementById("calcPeakMaxTri5min").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 300)) * 2 / 300.0));
+        document.getElementById("calcPeakMaxTri15min").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 900)) * 2 / 900.0));
+        document.getElementById("calcPeakMaxTri1h").innerHTML = numberOrDash(Math.floor(Math.floor(maxTXTotal + (maxTXRecovery * 3600)) * 2 / 3600.0));
+
+    }
+    
+    function numberOrDash(value) {
+    	if (value > 1) return value;
+    	return "-";
+    }
+        
     function toFixed(x) {
         if (Math.abs(x) < 1.0) {
             var e = parseInt(x.toString().split('e-')[1]);
